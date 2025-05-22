@@ -20,11 +20,11 @@
             //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
             bindings = <
-&kp ESC                          &kp N1  &kp N2  &kp N3    &kp N4    &kp N5                         &kp N6     &kp N7    &kp N8      &kp N9     &kp N0    &kp EQUAL
-&kp GRAVE                        &kp B   &kp L   &kp D     &kp W     &kp Z                          &kp MINUS  &kp F     &kp O       &kp U      &kp J     &kp SEMICOLON
-&mt LEFT_SHIFT NON_US_BACKSLASH  &kp N   &kp R   &lt 1 T   &lt 2 S   &kp G                          &kp Y      &lt 2 H   &lt 1 A     &kp E      &kp I     &kp COMMA
-&mt LSHFT LEFT_ALT               &kp Q   &kp X   &kp M     &kp C     &kp V   &kp LBKT     &kp RBKT  &kp K      &kp P     &kp PERIOD  &kp MINUS  &kp FSLH  &kp RSHFT
-                                                 &kp LALT  &kp LGUI  &mo 0   &kp SPACE    &kp RET   &mo 0      &kp BSPC  &kp RGUI
+&caps_word                       &kp N1  &kp N2  &kp N3   &kp N4   &kp N5                         &kp N6     &kp N7   &kp N8      &kp N9     &kp N0    &kp EQUAL
+&kp GRAVE                        &kp B   &kp L   &kp D    &kp W    &kp Z                          &kp MINUS  &kp F    &kp O       &kp U      &kp J     &kp SEMICOLON
+&mt LEFT_SHIFT NON_US_BACKSLASH  &kp N   &kp R   &lt 1 T  &lt 2 S  &kp G                          &kp Y      &lt 2 H  &lt 1 A     &kp E      &kp I     &mt RIGHT_SHIFT COMMA
+&mt LSHFT LEFT_ALT               &kp Q   &kp X   &kp M    &kp C    &kp V   &kp LBKT     &kp RBKT  &kp K      &kp P    &kp PERIOD  &kp MINUS  &kp FSLH  &kp RIGHT_ALT
+                                                 &trans   &trans   &trans  &kp SPACE    &kp RET   &trans     &trans   &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
