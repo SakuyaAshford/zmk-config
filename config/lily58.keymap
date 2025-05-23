@@ -14,38 +14,43 @@
             label = "SHIFTED_APOS";
             #binding-cells = <0>;
             bindings = <&kp SQT>, <&kp UNDER>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        
+
         shifted_comma: shifted_comma {
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_COMMA";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp QMARK>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        
+
         shifted_period: shifted_period {
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_PERIOD";
             #binding-cells = <0>;
             bindings = <&kp PERIOD>, <&kp GT>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        
+
         shifted_minus: shifted_minus {
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_MINUS";
             #binding-cells = <0>;
             bindings = <&kp MINUS>, <&kp DQT>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        
+
         shifted_slash: shifted_slash {
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_SLASH";
             #binding-cells = <0>;
             bindings = <&kp FSLH>, <&kp LT>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -62,11 +67,11 @@
             //                     |      |      |      |  SPACE |  | ENTER |      |       |       |
 
             bindings = <
-&kp GRAVE                        &kp N1  &kp N2          &kp N3          &kp N4       &kp N5                         &kp N6            &kp N7       &kp N8           &kp N9           &kp N0    &kp LBKT
-&caps_word                       &kp B   &mt LEFT_WIN L  &mt LEFT_ALT D  &mt LCTRL W  &kp Z                          &shifted_apos     &mt RCTRL F  &mt RIGHT_ALT O  &mt RIGHT_GUI U  &kp J     &kp SEMICOLON
-&mt LEFT_SHIFT NON_US_BACKSLASH  &kp N   &kp R           &lt 1 T         &lt 2 S      &kp G                          &kp Y             &lt 2 H      &lt 1 A          &kp E            &kp I     &shifted_comma
-&kp LEFT_ALT                     &kp Q   &kp X           &kp M           &kp C        &kp V   &kp LBKT     &kp RBKT  &kp K             &kp P        &shifted_period  &shifted_minus   &shifted_slash  &kp RIGHT_ALT
-                                                         &trans          &trans       &trans  &kp SPACE    &kp RET   &trans            &trans       &trans
+&kp GRAVE                        &kp N1  &kp N2  &kp N3          &kp N4       &kp N5                               &kp N6         &kp N7       &kp N8           &kp N9          &kp N0          &kp LBKT
+&caps_word                       &kp B   &kp L   &mt LEFT_ALT D  &mt LCTRL W  &kp Z                                &shifted_apos  &mt RCTRL F  &mt RIGHT_ALT O  &kp U           &kp J           &kp SEMICOLON
+&mt LEFT_SHIFT NON_US_BACKSLASH  &kp N   &kp R   &lt 1 T         &lt 2 S      &kp G                                &kp Y          &lt 2 H      &lt 1 A          &kp E           &kp I           &shifted_comma
+&kp LEFT_ALT                     &kp Q   &kp X   &kp M           &kp C        &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P        &shifted_period  &shifted_minus  &shifted_slash  &kp RIGHT_ALT
+                                                 &trans          &trans       &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -84,11 +89,11 @@
 
         sym {
             bindings = <
-&kp TILDE     &kp EXCL      &kp AT        &kp HASH       &kp DLLR         &kp PRCNT                         &kp CARET         &kp AMPS              &kp ASTRK             &kp LPAR     &kp RPAR       &kp LBRC
-&trans        &kp ESCAPE    &mt LEFT_WIN AMPERSAND  &mt LEFT_ALT ASTERISK  &mt LCTRL SEMICOLON  &kp COLON                         &mt RCTRL PIPE        &mt RIGHT_ALT LEFT_BRACE  &mt RIGHT_GUI RIGHT_BRACE  &kp SQT    &kp DELETE     &kp RBRC
-&trans        &kp TAB       &kp DOLLAR              &kp PERCENT            &kp CARET            &kp UNDERSCORE                    &kp EQUAL             &kp LEFT_PARENTHESIS      &kp RIGHT_PARENTHESIS      &kp TILDE  &kp BACKSPACE  &kp PIPE
-&trans        &kp CAPSLOCK  &kp EXCLAMATION         &kp AT_SIGN            &kp HASH             &kp CAPS        &trans    &trans  &kp NON_US_BACKSLASH  &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp SLASH  &kp ENTER      &trans
-                                                    &trans                 &trans               &trans          &trans    &trans  &trans                &trans                    &trans
+&kp TILDE  &kp EXCL      &kp AT                  &kp HASH               &kp DLLR             &kp PRCNT                         &kp CARET             &kp AMPS                  &kp ASTRK                  &kp LPAR   &kp RPAR       &kp LBRC
+&trans     &kp ESCAPE    &mt LEFT_WIN AMPERSAND  &mt LEFT_ALT ASTERISK  &mt LCTRL SEMICOLON  &kp COLON                         &mt RCTRL PIPE        &mt RIGHT_ALT LEFT_BRACE  &mt RIGHT_GUI RIGHT_BRACE  &kp SQT    &kp DELETE     &kp RBRC
+&trans     &kp TAB       &kp DOLLAR              &kp PERCENT            &kp CARET            &kp UNDERSCORE                    &kp EQUAL             &kp LEFT_PARENTHESIS      &kp RIGHT_PARENTHESIS      &kp TILDE  &kp BACKSPACE  &kp PIPE
+&trans     &kp CAPSLOCK  &kp EXCLAMATION         &kp AT_SIGN            &kp HASH             &kp CAPS        &trans    &trans  &kp NON_US_BACKSLASH  &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp SLASH  &kp ENTER      &trans
+                                                 &trans                 &trans               &trans          &trans    &trans  &trans                &trans                    &trans
             >;
         };
 
