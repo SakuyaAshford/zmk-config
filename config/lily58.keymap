@@ -20,10 +20,10 @@
             //                     | ALT  | GUI  | LOWER|  SPACE |  | ENTER | RAISE| BSPC  | GUI   |
 
             bindings = <
-&caps_word                       &kp N1  &kp N2          &kp N3          &kp N4       &kp N5                         &kp N6     &kp N7       &kp N8           &kp N9           &kp N0    &kp EQUAL
-&kp GRAVE                        &kp B   &mt LEFT_WIN L  &mt LEFT_ALT D  &mt LCTRL W  &kp Z                          &kp MINUS  &mt RCTRL F  &mt O RIGHT_ALT  &mt U RIGHT_GUI  &kp J     &kp SEMICOLON
-&mt LEFT_SHIFT NON_US_BACKSLASH  &kp N   &kp R           &lt 1 T         &lt 2 S      &kp G                          &kp Y      &lt 2 H      &lt 1 A          &kp E            &kp I     &mt RIGHT_SHIFT COMMA
-&kp LEFT_ALT                     &kp Q   &kp X           &kp M           &kp C        &kp V   &kp LBKT     &kp RBKT  &kp K      &kp P        &kp PERIOD       &kp MINUS        &kp FSLH  &kp RIGHT_ALT
+&caps_word                       &kp N1  &kp N2          &kp N3          &kp N4       &kp N5                         &kp N6     &kp N7       &kp N8           &kp N9                   &kp N0    &kp EQUAL
+&kp GRAVE                        &kp B   &mt LEFT_WIN L  &mt LEFT_ALT D  &mt LCTRL W  &kp Z                          &kp MINUS  &mt RCTRL F  &mt RIGHT_ALT O  &mt RIGHT_GUI RIGHT_GUI  &kp J     &kp SEMICOLON
+&mt LEFT_SHIFT NON_US_BACKSLASH  &kp N   &kp R           &lt 1 T         &lt 2 S      &kp G                          &kp Y      &lt 2 H      &lt 1 A          &kp E                    &kp I     &mt RIGHT_SHIFT COMMA
+&kp LEFT_ALT                     &kp Q   &kp X           &kp M           &kp C        &kp V   &kp LBKT     &kp RBKT  &kp K      &kp P        &kp PERIOD       &kp MINUS                &kp FSLH  &kp RIGHT_ALT
                                                          &trans          &trans       &trans  &kp SPACE    &kp RET   &trans     &trans       &trans
             >;
 
