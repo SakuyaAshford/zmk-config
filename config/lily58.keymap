@@ -101,11 +101,11 @@
 
         fun {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans     &trans          &trans          &trans           &trans      &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans     &trans          &mmv MOVE_UP    &trans           &kp K_FIND  &trans
-&trans  &trans  &trans  &trans  &trans  &trans                    &trans     &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp K_UNDO  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &mkp RCLK  &mkp LCLK       &kp K_COPY      &kp K_PASTE      &kp K_CUT   &trans
-                        &trans  &trans  &trans  &trans    &trans  &trans     &trans          &trans
+&trans  &trans   &trans  &trans  &trans  &trans                    &trans          &trans          &trans          &trans           &trans      &trans
+&trans  &kp F12  &kp F7  &kp F8  &kp F9  &trans                    &msc SCRL_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &kp K_FIND  &trans
+&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans                    &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp K_UNDO  &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans    &trans  &mkp RCLK       &mkp LCLK       &kp K_COPY      &kp K_PASTE      &kp K_CUT   &trans
+                         &trans  &trans  &trans  &trans    &trans  &trans          &trans          &trans
             >;
         };
 
