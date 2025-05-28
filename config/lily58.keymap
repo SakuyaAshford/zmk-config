@@ -101,10 +101,10 @@
 
         fun {
             bindings = <
-&trans  &trans   &trans  &trans  &trans  &trans                    &trans          &trans          &trans          &trans           &trans      &trans
-&trans  &kp F12  &kp F7  &kp F8  &kp F9  &trans                    &msc SCRL_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &kp K_FIND  &trans
-&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans                    &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp K_UNDO  &trans
-&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans    &trans  &mkp RCLK       &mkp LCLK       &kp K_COPY      &kp K_PASTE      &kp K_CUT   &trans
+&trans  &trans   &trans  &trans  &trans  &trans                    &trans          &trans          &trans          &trans           &trans     &trans
+&trans  &kp F12  &kp F7  &kp F8  &kp F9  &trans                    &msc SCRL_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &kp LC(Y)  &trans
+&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans                    &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(Z)  &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans    &trans  &mkp RCLK       &mkp LCLK       &kp LC(C)       &kp LC(V)        &kp LC(X)  &trans
                          &trans  &trans  &trans  &trans    &trans  &trans          &trans          &trans
             >;
         };
@@ -113,7 +113,7 @@
             bindings = <
 &trans          &trans            &trans            &trans            &trans            &trans                              &trans            &trans            &trans     &trans     &trans  &trans
 &trans          &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(NUMBER_5)                    &kp LG(NUMBER_6)  &kp LG(NUMBER_7)  &kp LG(K)  &trans     &trans  &trans
-&bootloader     &trans            &bt BT_SEL 3      &bt BT_SEL 0      &trans            &trans                              &trans            &kp LG(H)         &kp LG(J)  &kp LG(L)  &trans  &bootloader
+&bootloader     &trans            &bt BT_SEL 3      &bt BT_SEL 0      &trans            &trans                              &kp LC(F)         &kp LG(H)         &kp LG(J)  &kp LG(L)  &trans  &bootloader
 &bt BT_CLR_ALL  &bt BT_CLR        &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &trans            &trans    &trans  &kp LC(LS(TAB))   &kp LC(TAB)       &trans     &trans     &trans  &trans
                                                     &trans            &trans            &trans            &trans    &trans  &trans            &trans            &trans
             >;
