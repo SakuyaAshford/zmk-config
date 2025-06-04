@@ -104,7 +104,7 @@
 &trans  &trans   &trans  &trans  &trans  &trans                        &trans          &trans          &trans          &trans           &trans     &trans
 &trans  &kp F12  &kp F7  &kp F8  &kp F9  &trans                        &msc SCRL_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &kp LC(Y)  &trans
 &trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans                        &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(Z)  &trans
-&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans       &trans   &mkp RCLK       &mkp LCLK       &kp LC(C)       &kp LC(V)        &kp LC(X)  &trans
+&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans       &trans   &kp LC(X)       &kp LC(C)       &kp LC(V)       &mkp LCLK        &mkp RCLK  &trans
                          &trans  &trans  &trans  &kp SPACE    &kp RET  &trans          &trans          &trans
             >;
         };
