@@ -69,11 +69,11 @@
             //                     |      |      |      |  SPACE |  | ENTER |      |       |       |
 
             bindings = <
-&kp GRAVE                        &kp N1   &kp N2   &kp N3          &kp N4       &kp N5                               &kp N6         &kp N7       &kp N8           &kp N9          &kp N0          &trans
-&caps_word                       &kp B    &kp L    &mt LEFT_ALT D  &mt LCTRL W  &kp Z                                &shifted_apos  &mt RCTRL F  &mt RIGHT_ALT O  &kp U           &kp J           &kp SEMICOLON
-&mt LEFT_SHIFT NON_US_BACKSLASH  &lt 4 N  &lt 3 R  &lt 1 T         &lt 2 S      &kp G                                &kp Y          &lt 2 H      &lt 1 A          &lt 3 E         &lt 4 I         &shifted_comma
-&kp LEFT_ALT                     &kp Q    &kp X    &kp M           &kp C        &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P        &shifted_period  &shifted_minus  &shifted_slash  &kp EQUAL
-                                                   &trans          &trans       &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans       &trans
+&kp GRAVE                        &kp N1   &kp N2                &kp N3          &kp N4       &kp N5                               &kp N6         &kp N7       &kp N8           &kp N9                 &kp N0          &trans
+&caps_word                       &kp B    &mt LC(LEFT_SHIFT) L  &mt LEFT_ALT D  &mt LCTRL W  &kp Z                                &shifted_apos  &mt RCTRL F  &mt RIGHT_ALT O  &mt RC(RIGHT_SHIFT) U  &kp J           &kp SEMICOLON
+&mt LEFT_SHIFT NON_US_BACKSLASH  &lt 4 N  &lt 3 R               &lt 1 T         &lt 2 S      &kp G                                &kp Y          &lt 2 H      &lt 1 A          &lt 3 E                &lt 4 I         &shifted_comma
+&kp LEFT_ALT                     &kp Q    &kp X                 &kp M           &kp C        &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P        &shifted_period  &shifted_minus         &shifted_slash  &kp EQUAL
+                                                                &trans          &trans       &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
