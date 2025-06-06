@@ -11,12 +11,18 @@
 
 / {
     behaviors {
+        // Configure mod-tap with better settings for fast typing
+        &mt {
+            flavor = "balanced";  // or "tap-preferred" for even more tap-friendly behavior
+            tapping-term-ms = <150>;  // Slightly faster than default 200ms
+            require-prior-idle-ms = <150>;  // Helps prevent accidental holds when typing fast
+        };
+
         shifted_apos: shifted_apos {
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_APOS";
             #binding-cells = <0>;
             bindings = <&kp SQT>, <&kp UNDER>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -25,7 +31,6 @@
             label = "SHIFTED_COMMA";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp QMARK>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -34,7 +39,6 @@
             label = "SHIFTED_PERIOD";
             #binding-cells = <0>;
             bindings = <&kp PERIOD>, <&kp GT>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -43,7 +47,6 @@
             label = "SHIFTED_MINUS";
             #binding-cells = <0>;
             bindings = <&kp MINUS>, <&kp DQT>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -52,7 +55,6 @@
             label = "SHIFTED_SLASH";
             #binding-cells = <0>;
             bindings = <&kp FSLH>, <&kp LT>;
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
