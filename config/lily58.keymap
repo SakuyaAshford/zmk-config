@@ -17,11 +17,23 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;                    // Slightly faster than default 200ms
-            quick-tap-ms = <0>;                         // No quick-tap repeat
+            tapping-term-ms = <280>;                    // Increased from 150ms to 280ms - longer hold time needed
+            quick-tap-ms = <175>;                       // Added quick-tap to prevent accidental holds on fast typing
             flavor = "balanced";                        // Wait for other key release before deciding
             bindings = <&kp>, <&kp>;
             require-prior-idle-ms = <150>;              // Helps prevent accidental holds when typing fast
+        };
+
+        // Enhanced shift behavior that works better for quick typing
+        quick_shift: quick_shift {
+            compatible = "zmk,behavior-hold-tap";
+            label = "QUICK_SHIFT";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;                    // Shorter hold time for shift
+            quick-tap-ms = <200>;                       // Quick repeat for fast shift usage
+            flavor = "hold-preferred";                  // Prefer hold for shift to ensure uppercase works
+            bindings = <&kp>, <&kp>;
+            retro-tap;                                  // Enable retro-tap for better shift behavior
         };
 
         // Mod-morph behaviors: Change output based on whether shift is held
@@ -80,11 +92,11 @@
             //                     |      |      |      |  SPACE |  | ENTER |      |       |       |
 
             bindings = <
-&kp GRAVE                        &kp N1   &kp N2                             &kp N3                     &kp N4                        &kp N5                               &kp N6         &kp N7                        &kp N8                      &kp N9                              &kp N0          &trans
-&caps_word                       &kp B    &hm LC(LEFT_SHIFT) L               &hm LEFT_ALT D             &hm LCTRL W                   &kp Z                                &shifted_apos  &hm RCTRL F                   &hm RIGHT_ALT O             &hm RC(RIGHT_SHIFT) U               &kp J           &kp SEMICOLON
-&hm LEFT_SHIFT NON_US_BACKSLASH  &lt 4 N  &lt 3 R                           &lt 1 T                    &lt 2 S                       &kp G                                &kp Y          &lt 2 H                       &lt 1 A                     &lt 3 E                             &lt 4 I         &shifted_comma
-&kp LEFT_ALT                     &kp Q    &kp X                             &kp M                      &kp C                         &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P                         &shifted_period             &shifted_minus                      &shifted_slash  &kp EQUAL
-                                                                            &trans                     &trans                        &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans                        &trans
+&kp GRAVE                              &kp N1   &kp N2                             &kp N3                     &kp N4                        &kp N5                               &kp N6         &kp N7                          &kp N8                      &kp N9                                &kp N0          &trans
+&caps_word                             &kp B    &hm LC(LEFT_SHIFT) L               &hm LEFT_ALT D             &hm LCTRL W                   &kp Z                                &shifted_apos  &hm RCTRL F                   &hm RIGHT_ALT O           &hm RC(RIGHT_SHIFT) U               &kp J           &kp SEMICOLON
+&quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt 4 N  &lt 3 R                           &lt 1 T                    &lt 2 S                       &kp G                                &kp Y          &lt 2 H                         &lt 1 A                     &lt 3 E                               &lt 4 I         &shifted_comma
+&kp LEFT_ALT                           &kp Q    &kp X                             &kp M                      &kp C                         &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P                           &shifted_period             &shifted_minus                        &shifted_slash  &kp EQUAL
+                                                                                &trans                     &trans                        &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans                          &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
