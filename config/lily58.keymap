@@ -36,6 +36,80 @@
             // Using hold-preferred for reliable shift behavior
         };
 
+        // Tap-dance behaviors for F keys: single tap = F key, double tap = media control
+        f10_prev: f10_prev {
+            compatible = "zmk,behavior-tap-dance";
+            label = "F10_PREV";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F10>, <&kp C_PREV>;
+        };
+
+        f1_next: f1_next {
+            compatible = "zmk,behavior-tap-dance";
+            label = "F1_NEXT";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F1>, <&kp C_NEXT>;
+        };
+
+        f2_stop: f2_stop {
+            compatible = "zmk,behavior-tap-dance";
+            label = "F2_STOP";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F2>, <&kp C_STOP>;
+        };
+
+        f3_play: f3_play {
+            compatible = "zmk,behavior-tap-dance";
+            label = "F3_PLAY";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F3>, <&kp C_PLAY_PAUSE>;
+        };
+
+        f5_bri_down: f5_bri_down {
+            compatible = "zmk,behavior-tap-dance";
+            label = "F5_BRI_DOWN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F5>, <&kp C_BRI_DN>;
+        };
+
+        f6_bri_up: f6_bri_up {
+            compatible = "zmk,behavior-tap-dance";
+            label = "F6_BRI_UP";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F6>, <&kp C_BRI_UP>;
+        };
+
+        f7_mute: f7_mute {
+            compatible = "zmk,behavior-tap-dance";
+            label = "F7_MUTE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F7>, <&kp C_MUTE>;
+        };
+
+        f8_vol_down: f8_vol_down {
+            compatible = "zmk,behavior-tap-dance";
+            label = "F8_VOL_DOWN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F8>, <&kp C_VOL_DN>;
+        };
+
+        f9_vol_up: f9_vol_up {
+            compatible = "zmk,behavior-tap-dance";
+            label = "F9_VOL_UP";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp F9>, <&kp C_VOL_UP>;
+        };
+
+
         // Mod-morph behaviors: Change output based on whether shift is held
         // Format: bindings = <normal_output>, <shifted_output>;
         
@@ -124,11 +198,11 @@
 
         fun {
             bindings = <
-&trans  &trans   &trans  &trans  &trans  &trans                        &trans          &trans          &trans          &trans           &trans     &trans
-&trans  &kp F12  &kp F7  &kp F8  &kp F9  &trans                        &msc SCRL_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &kp LC(Y)  &trans
-&trans  &kp F11  &kp F4  &kp F5  &kp F6  &trans                        &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(Z)  &trans
-&trans  &kp F10  &kp F1  &kp F2  &kp F3  &trans  &trans       &trans   &kp LC(C)       &kp LC(V)       &kp LC(X)       &mkp LCLK        &mkp RCLK  &trans
-                         &trans  &trans  &trans  &kp SPACE    &kp RET  &trans          &trans          &trans
+&trans  &trans              &trans          &trans            &trans             &trans                                  &trans          &trans          &trans          &trans           &trans     &trans
+&trans  &kp F12             &f7_mute        &f8_vol_down      &f9_vol_up         &trans                                  &msc SCRL_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &kp LC(Y)  &trans
+&trans  &kp F11             &kp F4          &f5_bri_down      &f6_bri_up         &trans                                  &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(Z)  &trans
+&trans  &f10_prev           &f1_next        &f2_stop          &f3_play           &trans  &trans       &trans           &kp LC(C)       &kp LC(V)       &kp LC(X)       &mkp LCLK        &mkp RCLK  &trans
+                                            &trans            &trans             &trans  &kp SPACE    &kp RET          &trans          &trans          &trans
             >;
         };
 
