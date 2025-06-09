@@ -13,6 +13,7 @@
     behaviors {
         // Custom mod-tap with better settings for fast typing
         // This replaces the default &mt behavior with more tap-friendly settings
+
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -21,10 +22,12 @@
             quick-tap-ms = <175>;                       // Added quick-tap to prevent accidental holds on fast typing
             flavor = "balanced";                        // Wait for other key release before deciding
             bindings = <&kp>, <&kp>;
+
             require-prior-idle-ms = <150>;              // Helps prevent accidental holds when typing fast
         };
 
         // Enhanced shift behavior that works for both typing and selections
+
         quick_shift: quick_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "QUICK_SHIFT";
@@ -33,10 +36,12 @@
             quick-tap-ms = <200>;                       // Quick repeat for fast shift usage
             flavor = "hold-preferred";                  // Prefer hold for shift to ensure uppercase works
             bindings = <&kp>, <&kp>;
+
             // Using hold-preferred for reliable shift behavior
         };
 
         // Tap-dance behaviors for F keys: single tap = F key, double tap = media control
+
         f10_prev: f10_prev {
             compatible = "zmk,behavior-tap-dance";
             label = "F10_PREV";
@@ -109,15 +114,15 @@
             bindings = <&kp F9>, <&kp C_VOL_UP>;
         };
 
-
         // Mod-morph behaviors: Change output based on whether shift is held
         // Format: bindings = <normal_output>, <shifted_output>;
-        
+
         shifted_apos: shifted_apos {
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_APOS";
             #binding-cells = <0>;
-            bindings = <&kp SQT>, <&kp UNDER>;          // ' when normal, _ when shifted
+            bindings = <&kp SQT>, <&kp UNDER>;
+          // ' when normal, _ when shifted
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -125,7 +130,8 @@
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_COMMA";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp QMARK>;        // , when normal, ? when shifted
+            bindings = <&kp COMMA>, <&kp QMARK>;
+        // , when normal, ? when shifted
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -133,7 +139,8 @@
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_PERIOD";
             #binding-cells = <0>;
-            bindings = <&kp PERIOD>, <&kp GT>;          // . when normal, > when shifted
+            bindings = <&kp PERIOD>, <&kp GT>;
+          // . when normal, > when shifted
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -141,7 +148,8 @@
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_MINUS";
             #binding-cells = <0>;
-            bindings = <&kp MINUS>, <&kp DQT>;          // - when normal, " when shifted
+            bindings = <&kp MINUS>, <&kp DQT>;
+          // - when normal, " when shifted
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -149,7 +157,8 @@
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_SLASH";
             #binding-cells = <0>;
-            bindings = <&kp FSLH>, <&kp LT>;            // / when normal, < when shifted
+            bindings = <&kp FSLH>, <&kp LT>;
+            // / when normal, < when shifted
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -166,11 +175,11 @@
             //                     |      |      |      |  SPACE |  | ENTER |      |       |       |
 
             bindings = <
-&kp GRAVE                              &kp N1   &kp N2                             &kp N3                     &kp N4                        &kp N5                               &kp N6         &kp N7                          &kp N8                      &kp N9                                &kp N0          &trans
-&caps_word                             &kp B    &hm LC(LEFT_SHIFT) L               &hm LEFT_ALT D             &hm LCTRL W                   &kp Z                                &shifted_apos  &hm RCTRL F                   &hm RIGHT_ALT O           &hm RC(RIGHT_SHIFT) U               &kp J           &kp SEMICOLON
-&quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt 4 N  &lt 3 R                           &lt 1 T                    &lt 2 S                       &kp G                                &kp Y          &lt 2 H                         &lt 1 A                     &lt 3 E                               &lt 4 I         &shifted_comma
-&kp LEFT_ALT                           &kp Q    &kp X                             &kp M                      &kp C                         &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P                           &shifted_period             &shifted_minus                        &shifted_slash  &kp EQUAL
-                                                                                &trans                     &trans                        &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans                          &trans
+&kp GRAVE                                 &kp N1   &kp N2                &kp N3          &kp N4       &kp N5                               &kp N6         &kp N7       &kp N8           &kp N9                 &kp N0          &trans
+&caps_word                                &kp B    &hm LC(LEFT_SHIFT) L  &hm LEFT_ALT D  &hm LCTRL W  &kp Z                                &shifted_apos  &hm RCTRL F  &hm RIGHT_ALT O  &hm RC(RIGHT_SHIFT) U  &kp J           &kp SEMICOLON
+&quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt 4 N  &lt 3 R               &lt 1 T         &lt 2 S      &kp G                                &kp Y          &lt 2 H      &lt 1 A          &lt 3 E                &lt 4 I         &shifted_comma
+&kp LEFT_ALT                              &lt 5 Q  &kp X                 &kp M           &kp C        &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P        &shifted_period  &shifted_minus         &shifted_slash  &kp EQUAL
+                                                                         &trans          &trans       &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans       &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -188,21 +197,21 @@
 
         sym {
             bindings = <
-&kp TILDE  &kp EXCL      &kp AT                        &kp HASH                     &kp DLLR                       &kp PRCNT                             &kp CARET             &kp AMPS                            &kp ASTRK                        &kp LPAR   &kp RPAR       &kp LBRC
-&trans     &kp ESCAPE    &hm LEFT_WIN AMPERSAND        &hm LEFT_ALT ASTERISK        &hm LCTRL SEMICOLON            &kp COLON                             &hm RCTRL PIPE        &hm RIGHT_ALT LEFT_BRACE            &hm RIGHT_GUI RIGHT_BRACE        &kp SQT    &kp DELETE     &kp RBRC
-&trans     &kp TAB       &kp DOLLAR                    &kp PERCENT                  &kp CARET                      &kp UNDERSCORE                        &kp EQUAL             &kp LEFT_PARENTHESIS                &kp RIGHT_PARENTHESIS            &kp TILDE  &kp BACKSPACE  &kp PIPE
-&trans     &kp CAPSLOCK  &kp EXCLAMATION               &kp AT_SIGN                  &kp HASH                       &kp CAPS        &trans       &trans   &kp NON_US_BACKSLASH  &kp LEFT_BRACKET                    &kp RIGHT_BRACKET                &kp SLASH  &kp ENTER      &trans
-                                                       &trans                       &trans                         &trans          &kp SPACE    &kp RET  &trans                &trans                              &trans
+&kp TILDE  &kp EXCL      &kp AT                  &kp HASH               &kp DLLR             &kp PRCNT                             &kp CARET             &kp AMPS                  &kp ASTRK                  &kp LPAR   &kp RPAR       &kp LBRC
+&trans     &kp ESCAPE    &hm LEFT_WIN AMPERSAND  &hm LEFT_ALT ASTERISK  &hm LCTRL SEMICOLON  &kp COLON                             &hm RCTRL PIPE        &hm RIGHT_ALT LEFT_BRACE  &hm RIGHT_GUI RIGHT_BRACE  &kp SQT    &kp DELETE     &kp RBRC
+&trans     &kp TAB       &kp DOLLAR              &kp PERCENT            &kp CARET            &kp UNDERSCORE                        &kp EQUAL             &kp LEFT_PARENTHESIS      &kp RIGHT_PARENTHESIS      &kp TILDE  &kp BACKSPACE  &kp PIPE
+&trans     &kp CAPSLOCK  &kp EXCLAMATION         &kp AT_SIGN            &kp HASH             &kp CAPS        &trans       &trans   &kp NON_US_BACKSLASH  &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp SLASH  &kp ENTER      &trans
+                                                 &trans                 &trans               &trans          &kp SPACE    &kp RET  &trans                &trans                    &trans
             >;
         };
 
         fun {
             bindings = <
-&trans  &trans              &trans          &trans            &trans             &trans                                  &trans          &trans          &trans          &trans           &trans     &trans
-&trans  &kp F12             &f7_mute        &f8_vol_down      &f9_vol_up         &trans                                  &msc SCRL_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &kp LC(Y)  &trans
-&trans  &kp F11             &kp F4          &f5_bri_down      &f6_bri_up         &trans                                  &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(Z)  &trans
-&trans  &f10_prev           &f1_next        &f2_stop          &f3_play           &trans  &trans       &trans           &kp LC(C)       &kp LC(V)       &kp LC(X)       &mkp LCLK        &mkp RCLK  &trans
-                                            &trans            &trans             &trans  &kp SPACE    &kp RET          &trans          &trans          &trans
+&trans  &trans     &trans    &trans        &trans      &trans                        &trans          &trans          &trans          &trans           &trans     &trans
+&trans  &kp F12    &f7_mute  &f8_vol_down  &f9_vol_up  &trans                        &msc SCRL_UP    &msc SCRL_LEFT  &mmv MOVE_UP    &msc SCRL_RIGHT  &kp LC(Y)  &trans
+&trans  &kp F11    &kp F4    &f5_bri_down  &f6_bri_up  &trans                        &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LC(Z)  &trans
+&trans  &f10_prev  &f1_next  &f2_stop      &f3_play    &trans  &trans       &trans   &kp LC(C)       &kp LC(V)       &kp LC(X)       &mkp LCLK        &mkp RCLK  &trans
+                             &trans        &trans      &trans  &kp SPACE    &kp RET  &trans          &trans          &trans
             >;
         };
 
@@ -213,6 +222,16 @@
 &bootloader     &trans            &bt BT_SEL 3      &bt BT_SEL 0      &trans            &trans                                  &kp LC(F)         &kp LG(H)         &kp LG(J)  &kp LG(L)  &trans  &bootloader
 &bt BT_CLR_ALL  &bt BT_CLR        &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &trans            &trans       &trans   &kp LC(LS(TAB))   &kp LC(TAB)       &trans     &trans     &trans  &trans
                                                     &trans            &trans            &trans            &kp SPACE    &kp RET  &trans            &trans            &trans
+            >;
+        };
+
+        util {
+            bindings = <
+&trans  &trans  &trans     &trans     &trans     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans     &trans     &trans     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                           &trans     &trans     &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
     };
