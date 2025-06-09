@@ -122,7 +122,9 @@
             label = "SHIFTED_APOS";
             #binding-cells = <0>;
             bindings = <&kp SQT>, <&kp UNDER>;
-          // ' when normal, _ when shifted
+
+            // ' when normal, _ when shifted
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -131,7 +133,9 @@
             label = "SHIFTED_COMMA";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp QMARK>;
-        // , when normal, ? when shifted
+
+            // , when normal, ? when shifted
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -140,7 +144,9 @@
             label = "SHIFTED_PERIOD";
             #binding-cells = <0>;
             bindings = <&kp PERIOD>, <&kp GT>;
-          // . when normal, > when shifted
+
+            // . when normal, > when shifted
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -149,7 +155,9 @@
             label = "SHIFTED_MINUS";
             #binding-cells = <0>;
             bindings = <&kp MINUS>, <&kp DQT>;
-          // - when normal, " when shifted
+
+            // - when normal, " when shifted
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -158,7 +166,9 @@
             label = "SHIFTED_SLASH";
             #binding-cells = <0>;
             bindings = <&kp FSLH>, <&kp LT>;
+
             // / when normal, < when shifted
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -229,7 +239,7 @@
             bindings = <
 &trans  &trans  &trans     &trans     &trans     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans     &trans     &trans     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans     &trans     &trans     &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &kp LC(A)  &kp LC(S)  &kp LC(F)  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &kp LC(X)  &kp LC(C)  &kp LC(V)  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
                            &trans     &trans     &trans  &trans    &trans  &trans  &trans  &trans
             >;
