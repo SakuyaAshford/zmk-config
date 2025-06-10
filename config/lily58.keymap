@@ -237,11 +237,11 @@
 
         util {
             bindings = <
-&trans  &trans       &trans     &trans     &trans     &trans                       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp ESCAPE   &kp LC(Q)  &kp LC(W)  &kp LC(E)  &trans                       &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &kp LA(TAB)  &kp LC(A)  &kp LC(S)  &kp LC(F)  &kp LC(Y)                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans       &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Z)  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans     &trans     &trans     &trans    &trans  &trans  &trans  &trans
+&trans  &trans       &trans     &trans     &trans     &trans                           &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp ESCAPE   &kp LC(Q)  &kp LC(W)  &kp LC(E)  &kp BACKSPACE                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &kp LA(TAB)  &kp LC(A)  &kp LC(S)  &kp LC(F)  &kp LC(Y)                        &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans       &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Z)      &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans     &trans     &trans         &trans    &trans  &trans  &trans  &trans
             >;
         };
     };
