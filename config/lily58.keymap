@@ -42,7 +42,7 @@
 
         // Improved layer-tap behavior for more consistent layer access
         // This provides better consistency when quickly tapping to access layers
-        
+
         lt_improved: layer_tap_improved {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_IMPROVED";
@@ -51,7 +51,7 @@
             quick-tap-ms = <125>;                       // Shorter quick-tap to prioritize typing speed
             flavor = "balanced";                        // Wait for other key release before deciding
             bindings = <&mo>, <&kp>;
-            
+
             require-prior-idle-ms = <100>;              // Shorter idle time to maintain typing speed
             hold-trigger-on-release;                    // This is key - allows layer activation even during release phase
         };
@@ -131,6 +131,7 @@
         };
 
         // New tap-dance behaviors for standard numpad layout
+
         f1_mute: f1_mute {
             compatible = "zmk,behavior-tap-dance";
             label = "F1_MUTE";
@@ -250,11 +251,11 @@
             //                     |      |      |      |  SPACE |  | ENTER |      |       |       |
 
             bindings = <
-&kp GRAVE                                 &kp F1          &kp F2                &kp F3          &kp F4       &kp F5                               &kp F6         &kp F7       &kp F8           &kp F9                 &kp N0             &trans
-&caps_word                                &kp B           &hm LC(LEFT_SHIFT) L  &hm LEFT_ALT D  &hm LCTRL W  &kp Z                                &shifted_apos  &hm RCTRL F  &hm RIGHT_ALT O  &hm RC(RIGHT_SHIFT) U  &kp J              &kp SEMICOLON
-&quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt_improved 4 N  &lt_improved 3 R      &lt_improved 1 T  &lt_improved 2 S  &kp G                                &kp Y          &lt_improved 2 H  &lt_improved 1 A  &lt_improved 3 E       &lt_improved 4 I   &shifted_comma
-&kp LEFT_ALT                              &lt_improved 5 Q  &kp X                 &kp M           &kp C        &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P        &shifted_period  &shifted_minus         &shifted_slash     &kp EQUAL
-                                                                                &trans          &trans       &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans       &trans
+&trans                                    &trans            &trans                &trans            &trans            &trans                               &trans         &trans            &trans            &trans                 &trans            &trans
+&kp GRAVE                                 &kp B             &hm LC(LEFT_SHIFT) L  &hm LEFT_ALT D    &hm LCTRL W       &kp Z                                &shifted_apos  &hm RCTRL F       &hm RIGHT_ALT O   &hm RC(RIGHT_SHIFT) U  &kp J             &kp SEMICOLON
+&quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt_improved 4 N  &lt_improved 3 R      &lt_improved 1 T  &lt_improved 2 S  &kp G                                &kp Y          &lt_improved 2 H  &lt_improved 1 A  &lt_improved 3 E       &lt_improved 4 I  &shifted_comma
+&kp LEFT_ALT                              &lt_improved 5 Q  &kp X                 &kp M             &kp C             &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P             &shifted_period   &shifted_minus         &shifted_slash    &kp EQUAL
+                                                                                  &trans            &trans            &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans            &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -262,21 +263,21 @@
 
         num+nav {
             bindings = <
-&trans  &kp F1        &kp F2                 &kp F3                 &kp F4                     &kp F5                              &kp F6         &kp F7          &kp F8                  &kp F9             &kp F10            &kp F11
-&trans  &kp ESC       &hm LEFT_GUI NUMBER_1  &hm LEFT_ALT NUMBER_2  &hm LEFT_CONTROL NUMBER_3  &kp PLUS                            &kp PAGE_UP    &hm RCTRL HOME  &hm RIGHT_ALT UP_ARROW  &hm RIGHT_GUI END  &kp DEL            &kp F12
-&trans  &kp TAB       &kp NUMBER_4           &kp NUMBER_5           &kp NUMBER_6               &kp MINUS                           &kp PAGE_DOWN  &kp LEFT_ARROW  &kp DOWN                &kp RIGHT          &kp LC(BACKSPACE)  &trans
-&trans  &kp NUMBER_0  &kp NUMBER_7           &kp NUMBER_8           &kp NUMBER_9               &kp PERIOD  &trans       &trans     &kp H          &kp J           &kp K                   &kp L              &kp ENTER          &trans
+&trans  &trans        &trans                 &trans                 &trans                     &trans                              &trans         &trans          &trans                  &trans             &trans         &trans
+&trans  &kp ESC       &hm LEFT_GUI NUMBER_1  &hm LEFT_ALT NUMBER_2  &hm LEFT_CONTROL NUMBER_3  &kp PLUS                            &kp PAGE_UP    &hm RCTRL HOME  &hm RIGHT_ALT UP_ARROW  &hm RIGHT_GUI END  &kp DEL        &trans
+&trans  &kp TAB       &kp NUMBER_4           &kp NUMBER_5           &kp NUMBER_6               &kp MINUS                           &kp PAGE_DOWN  &kp LEFT_ARROW  &kp DOWN                &kp RIGHT          &kp BACKSPACE  &trans
+&trans  &kp NUMBER_0  &kp NUMBER_7           &kp NUMBER_8           &kp NUMBER_9               &kp PERIOD  &trans       &trans     &kp H          &kp J           &kp K                   &kp L              &kp ENTER      &trans
                                              &trans                 &trans                     &trans      &kp SPACE    &kp ENTER  &trans         &trans          &trans
             >;
         };
 
         sym {
             bindings = <
-&kp TILDE  &kp EXCL      &kp AT                  &kp HASH               &kp DLLR             &kp PRCNT                             &kp CARET             &kp AMPS                  &kp ASTRK                  &kp LPAR   &kp RPAR       &kp LBRC
-&trans     &kp ESCAPE    &hm LEFT_WIN AMPERSAND  &hm LEFT_ALT ASTERISK  &hm LCTRL SEMICOLON  &kp COLON                             &hm RCTRL PIPE        &hm RIGHT_ALT LEFT_BRACE  &hm RIGHT_GUI RIGHT_BRACE  &kp SQT    &kp DELETE     &kp RBRC
-&trans     &kp TAB       &kp DOLLAR              &kp PERCENT            &kp CARET            &kp UNDERSCORE                        &kp EQUAL             &kp LEFT_PARENTHESIS      &kp RIGHT_PARENTHESIS      &kp TILDE  &kp BACKSPACE  &kp PIPE
-&trans     &kp CAPSLOCK  &kp EXCLAMATION         &kp AT_SIGN            &kp HASH             &kp CAPS        &trans       &trans   &kp NON_US_BACKSLASH  &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp SLASH  &kp ENTER      &trans
-                                                 &trans                 &trans               &trans          &kp SPACE    &kp RET  &trans                &trans                    &trans
+&trans  &trans      &trans                  &trans                 &trans               &trans                                &trans                &trans                    &trans                     &trans     &trans         &trans
+&trans  &kp ESCAPE  &hm LEFT_WIN AMPERSAND  &hm LEFT_ALT ASTERISK  &hm LCTRL SEMICOLON  &kp COLON                             &hm RCTRL PIPE        &hm RIGHT_ALT LEFT_BRACE  &hm RIGHT_GUI RIGHT_BRACE  &kp SQT    &kp DELETE     &trans
+&trans  &kp TAB     &kp DOLLAR              &kp PERCENT            &kp CARET            &kp UNDERSCORE                        &kp EQUAL             &kp LEFT_PARENTHESIS      &kp RIGHT_PARENTHESIS      &kp TILDE  &kp BACKSPACE  &trans
+&trans  &kp LCTRL   &kp EXCLAMATION         &kp AT_SIGN            &kp HASH             &kp CAPS        &trans       &trans   &kp NON_US_BACKSLASH  &kp LEFT_BRACKET          &kp RIGHT_BRACKET          &kp SLASH  &kp ENTER      &trans
+                                            &trans                 &trans               &trans          &kp SPACE    &kp RET  &trans                &trans                    &trans
             >;
         };
 
@@ -307,6 +308,16 @@
 &trans  &kp LA(TAB)  &kp LC(A)  &kp LC(S)  &kp LC(F)  &kp LC(Y)                        &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans       &kp LC(X)  &kp LC(C)  &kp LC(V)  &kp LC(Z)      &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
                                 &trans     &trans     &trans         &trans    &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_6 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans
             >;
         };
     };
