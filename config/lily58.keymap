@@ -11,58 +11,63 @@
 
 / {
     behaviors {
-        // Custom mod-tap with better settings for fast typing
-        // This replaces the default &mt behavior with more tap-friendly settings
-
+        // Ultra tap-focused homerow mods for 200+ WPM typing
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
             #binding-cells = <2>;
-            tapping-term-ms = <280>;                    // Increased from 150ms to 280ms - longer hold time needed
-            quick-tap-ms = <175>;                       // Added quick-tap to prevent accidental holds on fast typing
-            flavor = "balanced";                        // Wait for other key release before deciding
+            tapping-term-ms = <400>;                    // Very long hold time - prioritizes tap
+            quick-tap-ms = <250>;                       // Long quick-tap window
+            flavor = "tap-preferred";                   // Always favor tap when uncertain
             bindings = <&kp>, <&kp>;
-
-            require-prior-idle-ms = <150>;              // Helps prevent accidental holds when typing fast
+            require-prior-idle-ms = <200>;              // Must be idle before hold activates
+            hold-trigger-key-positions = <>;           // Empty = no positional restrictions
         };
 
-        // Enhanced shift behavior that works for both typing and selections
-
+        // Keep shift responsive but still tap-focused
         quick_shift: quick_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "QUICK_SHIFT";
             #binding-cells = <2>;
-            tapping-term-ms = <150>;                    // Shorter hold time for shift
-            quick-tap-ms = <200>;                       // Quick repeat for fast shift usage
-            flavor = "hold-preferred";                  // Prefer hold for shift to ensure uppercase works
+            tapping-term-ms = <120>;                    // Short for shift responsiveness
+            quick-tap-ms = <150>;                       
+            flavor = "tap-preferred";                   // Still tap-preferred but shorter timing
             bindings = <&kp>, <&kp>;
-
-            // Using hold-preferred for reliable shift behavior
+            require-prior-idle-ms = <100>;              
         };
 
-        // Improved layer-tap behavior for more consistent layer access
-        // This provides better consistency when quickly tapping to access layers
-
-        lt_improved: layer_tap_improved {
+        // Layer taps optimized for essential layers 1 & 2
+        lt_essential: layer_tap_essential {
             compatible = "zmk,behavior-hold-tap";
-            label = "LAYER_TAP_IMPROVED";
+            label = "LAYER_TAP_ESSENTIAL";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;                    // Slightly longer than default for more reliable layer access
-            quick-tap-ms = <125>;                       // Shorter quick-tap to prioritize typing speed
-            flavor = "balanced";                        // Wait for other key release before deciding
+            tapping-term-ms = <180>;                    // Shorter for layers 1&2 - quick access
+            quick-tap-ms = <120>;                       // Shorter quick-tap for faster layer access
+            flavor = "balanced";                        // Balanced for essential functions
             bindings = <&mo>, <&kp>;
-
-            require-prior-idle-ms = <100>;              // Shorter idle time to maintain typing speed
-            hold-trigger-on-release;                    // This is key - allows layer activation even during release phase
+            require-prior-idle-ms = <80>;               // Shorter idle for responsive layer access
+            hold-trigger-on-release;                    
         };
 
-        // Tap-dance behaviors for F keys: single tap = F key, double tap = media control
+        // Layer taps for less critical layers 3,4,5
+        lt_secondary: layer_tap_secondary {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_SECONDARY";
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;                    // Longer for secondary layers
+            quick-tap-ms = <200>;                       // Longer quick-tap window
+            flavor = "tap-preferred";                   // Favor tap for alphabet keys
+            bindings = <&mo>, <&kp>;
+            require-prior-idle-ms = <150>;              // Moderate idle requirement
+            hold-trigger-on-release;                    
+        };
 
+        // Fast tap-dance behaviors - shorter timing for speed
         f10_prev: f10_prev {
             compatible = "zmk,behavior-tap-dance";
             label = "F10_PREV";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;                    // Shorter for faster access
             bindings = <&kp F10>, <&kp C_PREV>;
         };
 
@@ -70,7 +75,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F1_NEXT";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F1>, <&kp C_NEXT>;
         };
 
@@ -78,7 +83,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F2_STOP";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F2>, <&kp C_STOP>;
         };
 
@@ -86,7 +91,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F3_PLAY";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F3>, <&kp C_PLAY_PAUSE>;
         };
 
@@ -94,7 +99,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F5_BRI_DOWN";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F5>, <&kp C_BRI_DN>;
         };
 
@@ -102,7 +107,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F6_BRI_UP";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F6>, <&kp C_BRI_UP>;
         };
 
@@ -110,7 +115,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F7_MUTE";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F7>, <&kp C_MUTE>;
         };
 
@@ -118,7 +123,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F8_VOL_DOWN";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F8>, <&kp C_VOL_DN>;
         };
 
@@ -126,17 +131,15 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F9_VOL_UP";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F9>, <&kp C_VOL_UP>;
         };
-
-        // New tap-dance behaviors for standard numpad layout
 
         f1_mute: f1_mute {
             compatible = "zmk,behavior-tap-dance";
             label = "F1_MUTE";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F1>, <&kp C_MUTE>;
         };
 
@@ -144,7 +147,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F2_VOL_DOWN";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F2>, <&kp C_VOL_DN>;
         };
 
@@ -152,7 +155,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F3_VOL_UP";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F3>, <&kp C_VOL_UP>;
         };
 
@@ -160,7 +163,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F7_NEXT";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F7>, <&kp C_NEXT>;
         };
 
@@ -168,7 +171,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F8_STOP";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F8>, <&kp C_STOP>;
         };
 
@@ -176,21 +179,15 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F9_PLAY";
             #binding-cells = <0>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             bindings = <&kp F9>, <&kp C_PLAY_PAUSE>;
         };
-
-        // Mod-morph behaviors: Change output based on whether shift is held
-        // Format: bindings = <normal_output>, <shifted_output>;
 
         shifted_apos: shifted_apos {
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_APOS";
             #binding-cells = <0>;
             bindings = <&kp SQT>, <&kp UNDER>;
-
-            // ' when normal, _ when shifted
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -199,9 +196,6 @@
             label = "SHIFTED_COMMA";
             #binding-cells = <0>;
             bindings = <&kp COMMA>, <&kp QMARK>;
-
-            // , when normal, ? when shifted
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -210,9 +204,6 @@
             label = "SHIFTED_PERIOD";
             #binding-cells = <0>;
             bindings = <&kp PERIOD>, <&kp GT>;
-
-            // . when normal, > when shifted
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -221,9 +212,6 @@
             label = "SHIFTED_MINUS";
             #binding-cells = <0>;
             bindings = <&kp MINUS>, <&kp DQT>;
-
-            // - when normal, " when shifted
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -232,9 +220,6 @@
             label = "SHIFTED_SLASH";
             #binding-cells = <0>;
             bindings = <&kp FSLH>, <&kp LT>;
-
-            // / when normal, < when shifted
-
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -251,11 +236,11 @@
             //                     |      |      |      |  SPACE |  | ENTER |      |       |       |
 
             bindings = <
-&trans                                    &trans            &trans                &trans            &trans            &trans                               &trans         &trans            &trans            &trans                 &trans            &trans
-&kp GRAVE                                 &kp B             &hm LC(LEFT_SHIFT) L  &hm LEFT_ALT D    &hm LCTRL W       &kp Z                                &shifted_apos  &hm RCTRL F       &hm RIGHT_ALT O   &hm RC(RIGHT_SHIFT) U  &kp J             &kp SEMICOLON
-&quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt_improved 4 N  &lt_improved 3 R      &lt_improved 1 T  &lt_improved 2 S  &kp G                                &kp Y          &lt_improved 2 H  &lt_improved 1 A  &lt_improved 3 E       &lt_improved 4 I  &shifted_comma
-&kp LEFT_ALT                              &lt_improved 5 Q  &kp X                 &kp M             &kp C             &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P             &shifted_period   &shifted_minus         &shifted_slash    &kp EQUAL
-                                                                                  &trans            &trans            &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans            &trans
+&trans                                    &trans            &trans                &trans              &trans              &trans                               &trans         &trans              &trans              &trans                   &trans              &trans
+&kp GRAVE                                 &kp B             &hm LC(LEFT_SHIFT) L  &hm LEFT_ALT D      &hm LCTRL W         &kp Z                                &shifted_apos  &hm RCTRL F         &hm RIGHT_ALT O     &hm RC(RIGHT_SHIFT) U    &kp J               &kp SEMICOLON
+&quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt_secondary 4 N &lt_secondary 3 R     &lt_essential 1 T  &lt_essential 2 S  &kp G                                &kp Y          &lt_essential 2 H  &lt_essential 1 A  &lt_secondary 3 E       &lt_secondary 4 I  &shifted_comma
+&kp LEFT_ALT                              &lt_secondary 5 Q &kp X                 &kp M               &kp C               &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P               &shifted_period     &shifted_minus           &shifted_slash      &kp EQUAL
+                                                                                  &trans              &trans              &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans              &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
