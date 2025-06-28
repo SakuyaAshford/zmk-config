@@ -11,7 +11,6 @@
 
 / {
     behaviors {
-        // Ultra tap-focused homerow mods for 200+ WPM typing
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -24,16 +23,15 @@
             hold-trigger-key-positions = <>;           // Empty = no positional restrictions
         };
 
-        // Keep shift responsive but still tap-focused
         quick_shift: quick_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "QUICK_SHIFT";
             #binding-cells = <2>;
             tapping-term-ms = <120>;                    // Short for shift responsiveness
-            quick-tap-ms = <150>;                       
-            flavor = "tap-preferred";                   // Still tap-preferred but shorter timing
+            quick-tap-ms = <100>;                       // Shorter to allow quick repeats
+            flavor = "hold-preferred";                  // Prefer hold for reliable shift
             bindings = <&kp>, <&kp>;
-            require-prior-idle-ms = <100>;              
+            require-prior-idle-ms = <50>;               // Very short idle - allow space+shift combo
         };
 
         // Layer taps optimized for essential layers 1 & 2
