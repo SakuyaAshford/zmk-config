@@ -23,6 +23,7 @@
             hold-trigger-key-positions = <>;           // Empty = no positional restrictions
         };
 
+        // Shift optimized for capitalizing words after spaces
         quick_shift: quick_shift {
             compatible = "zmk,behavior-hold-tap";
             label = "QUICK_SHIFT";
@@ -34,12 +35,12 @@
             require-prior-idle-ms = <50>;               // Very short idle - allow space+shift combo
         };
 
-        // Layer taps optimized for essential layers 1 & 2
+        // Layer taps optimized for essential layers 1, 2, & 5
         lt_essential: layer_tap_essential {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_ESSENTIAL";
             #binding-cells = <2>;
-            tapping-term-ms = <180>;                    // Shorter for layers 1&2 - quick access
+            tapping-term-ms = <180>;                    // Shorter for layers 1,2,5 - quick access
             quick-tap-ms = <120>;                       // Shorter quick-tap for faster layer access
             flavor = "balanced";                        // Balanced for essential functions
             bindings = <&mo>, <&kp>;
@@ -47,7 +48,7 @@
             hold-trigger-on-release;                    
         };
 
-        // Layer taps for less critical layers 3,4,5
+        // Layer taps for less critical layers 3,4
         lt_secondary: layer_tap_secondary {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_SECONDARY";
@@ -181,6 +182,7 @@
             bindings = <&kp F9>, <&kp C_PLAY_PAUSE>;
         };
 
+        // Mod-morph behaviors remain the same - they don't interfere with typing speed
         shifted_apos: shifted_apos {
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_APOS";
@@ -237,7 +239,7 @@
 &trans                                    &trans            &trans                &trans              &trans              &trans                               &trans         &trans              &trans              &trans                   &trans              &trans
 &kp GRAVE                                 &kp B             &hm LC(LEFT_SHIFT) L  &hm LEFT_ALT D      &hm LCTRL W         &kp Z                                &shifted_apos  &hm RCTRL F         &hm RIGHT_ALT O     &hm RC(RIGHT_SHIFT) U    &kp J               &kp SEMICOLON
 &quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt_secondary 4 N &lt_secondary 3 R     &lt_essential 1 T  &lt_essential 2 S  &kp G                                &kp Y          &lt_essential 2 H  &lt_essential 1 A  &lt_secondary 3 E       &lt_secondary 4 I  &shifted_comma
-&kp LEFT_ALT                              &lt_secondary 5 Q &kp X                 &kp M               &kp C               &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P               &shifted_period     &shifted_minus           &shifted_slash      &kp EQUAL
+&kp LEFT_ALT                              &lt_essential 5 Q &kp X                 &kp M               &kp C               &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P               &shifted_period     &shifted_minus           &shifted_slash      &kp EQUAL
                                                                                   &trans              &trans              &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans              &trans
             >;
 
