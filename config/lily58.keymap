@@ -11,6 +11,7 @@
 
 / {
     behaviors {
+        // Ultra tap-focused homerow mods for 200+ WPM typing
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -35,12 +36,12 @@
             require-prior-idle-ms = <50>;               // Very short idle - allow space+shift combo
         };
 
-        // Layer taps optimized for essential layers 1, 2, & 5
+        // Layer taps optimized for essential layers 1, 2, 3, & 5
         lt_essential: layer_tap_essential {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_ESSENTIAL";
             #binding-cells = <2>;
-            tapping-term-ms = <180>;                    // Shorter for layers 1,2,5 - quick access
+            tapping-term-ms = <180>;                    // Shorter for layers 1,2,3,5 - quick access
             quick-tap-ms = <120>;                       // Shorter quick-tap for faster layer access
             flavor = "balanced";                        // Balanced for essential functions
             bindings = <&mo>, <&kp>;
@@ -48,7 +49,7 @@
             hold-trigger-on-release;                    
         };
 
-        // Layer taps for less critical layers 3,4
+        // Layer taps for less critical layer 4
         lt_secondary: layer_tap_secondary {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_SECONDARY";
@@ -61,12 +62,12 @@
             hold-trigger-on-release;                    
         };
 
-        // Fast tap-dance behaviors - shorter timing for speed
+        // Fast tap-dance behaviors - even shorter timing for F-keys
         f10_prev: f10_prev {
             compatible = "zmk,behavior-tap-dance";
             label = "F10_PREV";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;                    // Shorter for faster access
+            tapping-term-ms = <100>;                    // Shorter for faster F-key access
             bindings = <&kp F10>, <&kp C_PREV>;
         };
 
@@ -74,7 +75,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F1_NEXT";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F1>, <&kp C_NEXT>;
         };
 
@@ -82,7 +83,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F2_STOP";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F2>, <&kp C_STOP>;
         };
 
@@ -90,7 +91,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F3_PLAY";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F3>, <&kp C_PLAY_PAUSE>;
         };
 
@@ -98,7 +99,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F5_BRI_DOWN";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F5>, <&kp C_BRI_DN>;
         };
 
@@ -106,7 +107,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F6_BRI_UP";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F6>, <&kp C_BRI_UP>;
         };
 
@@ -114,7 +115,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F7_MUTE";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F7>, <&kp C_MUTE>;
         };
 
@@ -122,7 +123,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F8_VOL_DOWN";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F8>, <&kp C_VOL_DN>;
         };
 
@@ -130,7 +131,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F9_VOL_UP";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F9>, <&kp C_VOL_UP>;
         };
 
@@ -138,7 +139,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F1_MUTE";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F1>, <&kp C_MUTE>;
         };
 
@@ -146,7 +147,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F2_VOL_DOWN";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F2>, <&kp C_VOL_DN>;
         };
 
@@ -154,7 +155,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F3_VOL_UP";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F3>, <&kp C_VOL_UP>;
         };
 
@@ -162,7 +163,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F7_NEXT";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F7>, <&kp C_NEXT>;
         };
 
@@ -170,7 +171,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F8_STOP";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F8>, <&kp C_STOP>;
         };
 
@@ -178,7 +179,7 @@
             compatible = "zmk,behavior-tap-dance";
             label = "F9_PLAY";
             #binding-cells = <0>;
-            tapping-term-ms = <150>;
+            tapping-term-ms = <100>;
             bindings = <&kp F9>, <&kp C_PLAY_PAUSE>;
         };
 
@@ -238,7 +239,7 @@
             bindings = <
 &trans                                    &trans            &trans                &trans              &trans              &trans                               &trans         &trans              &trans              &trans                   &trans              &trans
 &kp GRAVE                                 &kp B             &hm LC(LEFT_SHIFT) L  &hm LEFT_ALT D      &hm LCTRL W         &kp Z                                &shifted_apos  &hm RCTRL F         &hm RIGHT_ALT O     &hm RC(RIGHT_SHIFT) U    &kp J               &kp SEMICOLON
-&quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt_secondary 4 N &lt_secondary 3 R     &lt_essential 1 T  &lt_essential 2 S  &kp G                                &kp Y          &lt_essential 2 H  &lt_essential 1 A  &lt_secondary 3 E       &lt_secondary 4 I  &shifted_comma
+&quick_shift LEFT_SHIFT NON_US_BACKSLASH  &lt_secondary 4 N &lt_essential 3 R     &lt_essential 1 T  &lt_essential 2 S  &kp G                                &kp Y          &lt_essential 2 H  &lt_essential 1 A  &lt_essential 3 E       &lt_secondary 4 I  &shifted_comma
 &kp LEFT_ALT                              &lt_essential 5 Q &kp X                 &kp M               &kp C               &kp V         &kp LBKT     &kp RBKT  &kp K          &kp P               &shifted_period     &shifted_minus           &shifted_slash      &kp EQUAL
                                                                                   &trans              &trans              &kp LEFT_WIN  &kp SPACE    &kp RET   &trans         &trans              &trans
             >;
