@@ -12,90 +12,123 @@
 / {
     macros {
         // Word selection macro (Windows/Linux style) - selects word only (like double-click)
+
         select_word: select_word {
             compatible = "zmk,behavior-macro";
             label = "SELECT_WORD";
             #binding-cells = <0>;
-            bindings = <
-                &macro_press &kp LCTRL
-                &macro_tap &kp LEFT
-                &macro_press &kp LSHFT
-                &macro_tap &kp RIGHT
-                &macro_release &kp LSHFT
-                &macro_release &kp LCTRL
-            >;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_release>,
+                <&kp LCTRL>;
         };
 
         // Line selection macro (Windows/Linux style)
+
         select_line: select_line {
             compatible = "zmk,behavior-macro";
             label = "SELECT_LINE";
             #binding-cells = <0>;
-            bindings = <
-                &macro_tap &kp HOME
-                &macro_press &kp LSHFT
-                &macro_tap &kp END
-                &macro_release &kp LSHFT
-            >;
+            bindings =
+                <&macro_tap>,
+                <&kp HOME>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp END>,
+                <&macro_release>,
+                <&kp LSHFT>;
         };
 
         // Mac version - word selection
+
         select_word_mac: select_word_mac {
             compatible = "zmk,behavior-macro";
             label = "SELECT_WORD_MAC";
             #binding-cells = <0>;
-            bindings = <
-                &macro_press &kp LALT
-                &macro_tap &kp RIGHT
-                &macro_tap &kp LEFT
-                &macro_press &kp LSHFT
-                &macro_tap &kp RIGHT
-                &macro_release &kp LSHFT
-                &macro_release &kp LALT
-            >;
+            bindings =
+                <&macro_press>,
+                <&kp LALT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_release>,
+                <&kp LALT>;
         };
 
         // Mac version - line selection
+
         select_line_mac: select_line_mac {
             compatible = "zmk,behavior-macro";
             label = "SELECT_LINE_MAC";
             #binding-cells = <0>;
-            bindings = <
-                &macro_press &kp LCMD
-                &macro_tap &kp LEFT
-                &macro_press &kp LSHFT
-                &macro_tap &kp RIGHT
-                &macro_release &kp LSHFT
-                &macro_release &kp LCMD
-            >;
+            bindings =
+                <&macro_press>,
+                <&kp LCMD>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_release>,
+                <&kp LCMD>;
         };
 
         // Extend word selection forward (for repeated presses)
+
         extend_word: extend_word {
             compatible = "zmk,behavior-macro";
             label = "EXTEND_WORD";
             #binding-cells = <0>;
-            bindings = <
-                &macro_press &kp LCTRL
-                &macro_press &kp LSHFT
-                &macro_tap &kp RIGHT
-                &macro_release &kp LSHFT
-                &macro_release &kp LCTRL
-            >;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_release>,
+                <&kp LCTRL>;
         };
 
         // Extend word selection backward
+
         extend_word_back: extend_word_back {
             compatible = "zmk,behavior-macro";
             label = "EXTEND_WORD_BACK";
             #binding-cells = <0>;
-            bindings = <
-                &macro_press &kp LCTRL
-                &macro_press &kp LSHFT
-                &macro_tap &kp LEFT
-                &macro_release &kp LSHFT
-                &macro_release &kp LCTRL
-            >;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&macro_press>,
+                <&kp LSHFT>,
+                <&macro_tap>,
+                <&kp LEFT>,
+                <&macro_release>,
+                <&kp LSHFT>,
+                <&macro_release>,
+                <&kp LCTRL>;
         };
     };
 
@@ -231,7 +264,6 @@
             bindings = <&kp F9>, <&kp C_PLAY_PAUSE>;
         };
 
-
         shifted_apos: shifted_apos {
             compatible = "zmk,behavior-mod-morph";
             label = "SHIFTED_APOS";
@@ -282,6 +314,7 @@
             label = "WORD_SELECT_MODE";
             #binding-cells = <0>;
             bindings = <&select_word>, <&select_line>;
+
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
 
@@ -348,21 +381,21 @@
 
         misc {
             bindings = <
-&trans          &trans            &trans            &trans            &trans            &trans                                  &trans              &trans             &trans             &trans              &trans     &trans
-&trans          &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(NUMBER_5)                        &kp LG(NUMBER_6)    &select_word       &extend_word       &select_line        &kp LC(A)  &trans
-&bootloader     &trans            &bt BT_SEL 3      &bt BT_SEL 0      &trans            &trans                                  &kp LG(NUMBER_7)    &extend_word_back  &kp LC(F)          &extend_word        &kp LC(Y)  &bootloader
-&bt BT_CLR_ALL  &bt BT_CLR        &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &trans            &trans       &trans   &kp LC(LS(TAB))     &kp LC(TAB)        &kp LG(K)          &kp LG(H)           &kp LG(J)  &trans
-                                                    &trans            &trans            &kp LWIN          &kp SPACE    &kp RET  &kp BSPC            &trans             &trans
+&trans          &trans            &trans            &trans            &trans            &trans                                  &trans            &trans             &trans        &trans        &trans     &trans
+&trans          &kp LG(NUMBER_1)  &kp LG(NUMBER_2)  &kp LG(NUMBER_3)  &kp LG(NUMBER_4)  &kp LG(NUMBER_5)                        &kp LG(NUMBER_6)  &select_word       &extend_word  &select_line  &kp LC(A)  &trans
+&bootloader     &trans            &bt BT_SEL 3      &bt BT_SEL 0      &trans            &trans                                  &kp LG(NUMBER_7)  &extend_word_back  &kp LC(F)     &extend_word  &kp LC(Y)  &bootloader
+&bt BT_CLR_ALL  &bt BT_CLR        &bt BT_SEL 0      &bt BT_SEL 1      &bt BT_SEL 2      &trans            &trans       &trans   &kp LC(LS(TAB))   &kp LC(TAB)        &kp LG(K)     &kp LG(H)     &kp LG(J)  &trans
+                                                    &trans            &trans            &kp LWIN          &kp SPACE    &kp RET  &kp BSPC          &trans             &trans
             >;
         };
 
         util {
             bindings = <
-&trans  &trans       &trans     &trans               &trans               &trans                               &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &kp ESCAPE   &kp LC(Q)  &kp LC(W)            &kp LC(E)            &kp BACKSPACE                        &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &kp LA(TAB)  &kp LC(A)  &kp LC(S)            &kp LC(F)            &kp LC(Y)                            &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans       &kp LC(X)  &mt LC(LS(C)) LC(C)  &mt LC(LS(V)) LC(V)  &kp LC(Z)      &trans       &trans   &trans    &trans  &trans  &trans  &trans  &trans
-                                &trans               &trans               &kp LWIN       &kp SPACE    &kp RET  &kp BSPC  &trans  &trans
+&trans  &trans       &trans               &trans               &trans               &trans                               &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &kp ESCAPE   &kp LC(Q)            &kp LC(W)            &kp LC(E)            &kp BACKSPACE                        &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &kp LA(TAB)  &kp LC(A)            &kp LC(S)            &kp LC(F)            &kp LC(Y)                            &trans    &trans  &trans  &trans  &trans  &trans
+&trans  &trans       &mt LC(LS(X)) LC(X)  &mt LC(LS(C)) LC(C)  &mt LC(LS(V)) LC(V)  &kp LC(Z)      &trans       &trans   &trans    &trans  &trans  &trans  &trans  &trans
+                                          &trans               &trans               &kp LWIN       &kp SPACE    &kp RET  &kp BSPC  &trans  &trans
             >;
         };
     };
